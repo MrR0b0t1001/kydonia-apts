@@ -4,7 +4,7 @@ import styles from "./Navbar.module.css";
 const navItems = [
   { href: "#home", label: "Home" },
   { href: "#services", label: "Services" },
-  { href: "#contact", label: "Contact" },
+  { href: "#contact", label: "Contact", isCta: true },
 ];
 
 const Navbar = () => {
