@@ -5,7 +5,7 @@ const Hero = () => {
     <section id="home" className={styles.hero} aria-labelledby="hero-title">
       <img
         className={styles.heroImage}
-        src="/images/kydonia-actual-hero.jpg"
+        src="/images/kydonia-hero.png"
         alt="Kydonia Apartments near the beach in Platanias, Chania, Crete"
       />
 
