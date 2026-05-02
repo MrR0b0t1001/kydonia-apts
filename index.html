@@ -3,8 +3,73 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kydonia Apts</title>
+
+    <!-- Primary SEO -->
+    <title>Kydonia Apartments | Apartments in Chania, Crete</title>
+
+    <meta
+      name="description"
+      content="Kydonia Apartments offers comfortable accommodation in Chania, Crete. Discover modern apartments, local hospitality, and easy access to the city and beaches."
+    />
+
+    <meta name="robots" content="index, follow" />
+
+    <!-- Replace with your real production domain -->
+    <link rel="canonical" href="https://www.yourdomain.com/" />
+
+    <!-- Favicons -->
     <link rel="icon" href="/images/logo-3.jpg" />
+    <link rel="apple-touch-icon" href="/images/logo-3.jpg" />
+
+    <!-- Open Graph / Facebook / WhatsApp / LinkedIn -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Kydonia Apartments" />
+    <meta
+      property="og:title"
+      content="Kydonia Apartments | Apartments in Chania, Crete"
+    />
+    <meta
+      property="og:description"
+      content="Comfortable apartments in Chania, Crete with modern amenities and easy access to the city and beaches."
+    />
+    <meta property="og:url" content="https://www.yourdomain.com/" />
+    <meta
+      property="og:image"
+      content="https://www.yourdomain.com/images/logo-3.jpg"
+    />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Kydonia Apartments | Apartments in Chania, Crete"
+    />
+    <meta
+      name="twitter:description"
+      content="Comfortable apartments in Chania, Crete with modern amenities and easy access to the city and beaches."
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.yourdomain.com/images/logo-3.jpg"
+    />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LodgingBusiness",
+        "name": "Kydonia Apartments",
+        "description": "Comfortable apartments in Chania, Crete.",
+        "url": "https://www.yourdomain.com/",
+        "image": "https://www.yourdomain.com/images/logo-3.jpg",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Chania",
+          "addressRegion": "Crete",
+          "addressCountry": "GR"
+        }
+      }
+    </script>
 
     <style>
       @font-face {
@@ -55,6 +120,8 @@
         scroll-behavior: smooth;
         scroll-padding-top: 5.5rem;
         scrollbar-gutter: stable;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(15, 23, 42, 0.28) transparent;
       }
 
       /* Respect users who prefer reduced motion */
@@ -68,12 +135,6 @@
         *::after {
           scroll-behavior: auto !important;
         }
-      }
-
-      /* Firefox / modern standard scrollbar styling */
-      html {
-        scrollbar-width: thin;
-        scrollbar-color: rgba(15, 23, 42, 0.28) transparent;
       }
 
       /* Chrome, Edge, Safari */
@@ -106,8 +167,15 @@
       }
     </style>
   </head>
+
   <body>
+    <noscript>
+      Kydonia Apartments offers comfortable accommodation in Chania, Crete.
+      Please enable JavaScript to view the full website.
+    </noscript>
+
     <div id="root"></div>
+
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
