@@ -1,9 +1,54 @@
 import styles from "./ContactUs.module.css";
 
-type ContactIcon = "phone" | "email" | "map" | "instagram";
+type ContactIcon = "phone" | "email" | "map" | "instagram" | "facebook";
 
-const phoneNumber = "6999456875";
-const emailAddress = "emailadress@gmail.com";
+type PhoneContactMethod = {
+  type: "phone";
+  icon: "phone";
+  label: string;
+  values: string[];
+  helper: string;
+};
+
+type LinkContactMethod = {
+  type: "link";
+  icon: Exclude<ContactIcon, "phone">;
+  label: string;
+  value: string;
+  helper: string;
+  href: string;
+  external: boolean;
+};
+
+type ContactMethod = PhoneContactMethod | LinkContactMethod;
+
+const phoneNumbers = ["6978290560", "6944595205"];
+
+const formatGreekPhoneNumber = (phoneNumber: string) => {
+  const digits = phoneNumber.replace(/\D/g, "");
+
+  if (digits.startsWith("30") && digits.length === 12) {
+    return `+30 ${digits.slice(2, 5)} ${digits.slice(5, 8)} ${digits.slice(8)}`;
+  }
+
+  if (digits.length === 10) {
+    return `+30 ${digits.slice(0, 3)} ${digits.slice(3, 6)} ${digits.slice(6)}`;
+  }
+
+  return phoneNumber;
+};
+
+const getGreekPhoneHref = (phoneNumber: string) => {
+  const digits = phoneNumber.replace(/\D/g, "");
+
+  if (digits.startsWith("30")) {
+    return `+${digits}`;
+  }
+
+  return `+30${digits}`;
+};
+
+const emailAddress = "kydoniaapartmplatanias@yahoo.gr";
 const locationText = "Kydonia Apartments, Platanias, Chania, Crete";
 
 const googleMapsLink =
@@ -13,18 +58,20 @@ const googleMapsEmbedUrl =
   "https://www.google.com/maps?q=35.5177193,23.908864&z=16&output=embed";
 
 const instagramLink = "https://www.instagram.com/kydonia_platanias_apartments/";
+const facebookLink =
+  "https://www.facebook.com/p/Kydonia-Apartments-Platanias-Chania-100057217428923/";
 
-const contactMethods = [
+const contactMethods: ContactMethod[] = [
   {
-    icon: "phone" as ContactIcon,
+    type: "phone",
+    icon: "phone",
     label: "Phone",
-    value: phoneNumber,
+    values: phoneNumbers,
     helper: "Call us for availability and booking details",
-    href: `tel:${phoneNumber}`,
-    external: false,
   },
   {
-    icon: "email" as ContactIcon,
+    type: "link",
+    icon: "email",
     label: "Email",
     value: emailAddress,
     helper: "Send us your dates and questions",
@@ -32,7 +79,8 @@ const contactMethods = [
     external: false,
   },
   {
-    icon: "map" as ContactIcon,
+    type: "link",
+    icon: "map",
     label: "Location",
     value: locationText,
     helper: "Find us in Platanias, Chania",
@@ -40,11 +88,21 @@ const contactMethods = [
     external: true,
   },
   {
-    icon: "instagram" as ContactIcon,
+    type: "link",
+    icon: "instagram",
     label: "Instagram",
     value: "Visit our profile",
     helper: "See more photos and updates",
     href: instagramLink,
+    external: true,
+  },
+  {
+    type: "link",
+    icon: "facebook",
+    label: "Facebook",
+    value: "Visit our page",
+    helper: "See more photos and updates",
+    href: facebookLink,
     external: true,
   },
 ];
@@ -113,6 +171,16 @@ const Icon = ({ name }: { name: ContactIcon }) => {
           <path {...strokeProps} d="M17.5 6.5h.01" />
         </svg>
       );
+
+    case "facebook":
+      return (
+        <svg {...commonProps}>
+          <path
+            {...strokeProps}
+            d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3.5l.5-4h-4V7a1 1 0 0 1 1-1h3V2Z"
+          />
+        </svg>
+      );
   }
 };
 
@@ -137,7 +205,7 @@ const ContactUs = () => {
         <div className={styles.contactGrid}>
           <div className={styles.imageCard}>
             <img
-              src="/images/kydonia-hotel-5.jpg"
+              src="/images/hero-contact.png"
               alt="Aerial exterior view of Kydonia Apartments in Platanias, Chania"
               className={styles.contactImage}
             />
@@ -162,34 +230,84 @@ const ContactUs = () => {
             </p>
 
             <div className={styles.contactMethods}>
-              {contactMethods.map((method) => (
-                <a
-                  key={method.label}
-                  href={method.href}
-                  className={styles.contactMethod}
-                  target={method.external ? "_blank" : undefined}
-                  rel={method.external ? "noreferrer" : undefined}
-                >
-                  <span className={styles.methodIcon}>
-                    <Icon name={method.icon} />
-                  </span>
+              {contactMethods.map((method) => {
+                if (method.type === "phone") {
+                  return (
+                    <div
+                      key={method.label}
+                      className={`${styles.contactMethod} ${styles.phoneMethod}`}
+                    >
+                      <span className={styles.methodIcon}>
+                        <Icon name={method.icon} />
+                      </span>
 
-                  <span className={styles.methodContent}>
-                    <span className={styles.methodLabel}>{method.label}</span>
-                    <strong className={styles.methodValue}>
-                      {method.value}
-                    </strong>
-                    <span className={styles.methodHelper}>{method.helper}</span>
-                  </span>
-                </a>
-              ))}
+                      <span className={styles.methodContent}>
+                        <span className={styles.methodLabel}>
+                          {method.label}
+                        </span>
+
+                        <span className={styles.phoneList}>
+                          {method.values.map((phoneNumber) => {
+                            const formattedPhone =
+                              formatGreekPhoneNumber(phoneNumber);
+                            const phoneHref = getGreekPhoneHref(phoneNumber);
+
+                            return (
+                              <span
+                                key={phoneNumber}
+                                className={styles.phoneRow}
+                              >
+                                <strong className={styles.methodValue}>
+                                  {formattedPhone}
+                                </strong>
+
+                                <a
+                                  href={`tel:${phoneHref}`}
+                                  className={styles.phoneCallButton}
+                                  aria-label={`Call ${formattedPhone}`}
+                                >
+                                  <Icon name="phone" />
+                                </a>
+                              </span>
+                            );
+                          })}
+                        </span>
+
+                        <span className={styles.methodHelper}>
+                          {method.helper}
+                        </span>
+                      </span>
+                    </div>
+                  );
+                }
+
+                return (
+                  <a
+                    key={method.label}
+                    href={method.href}
+                    className={styles.contactMethod}
+                    target={method.external ? "_blank" : undefined}
+                    rel={method.external ? "noreferrer" : undefined}
+                  >
+                    <span className={styles.methodIcon}>
+                      <Icon name={method.icon} />
+                    </span>
+
+                    <span className={styles.methodContent}>
+                      <span className={styles.methodLabel}>{method.label}</span>
+                      <strong className={styles.methodValue}>
+                        {method.value}
+                      </strong>
+                      <span className={styles.methodHelper}>
+                        {method.helper}
+                      </span>
+                    </span>
+                  </a>
+                );
+              })}
             </div>
 
             <div className={styles.actions}>
-              <a href={`tel:${phoneNumber}`} className={styles.primaryButton}>
-                Call for Availability
-              </a>
-
               <a
                 href={`mailto:${emailAddress}`}
                 className={styles.secondaryButton}

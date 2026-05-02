@@ -204,6 +204,10 @@
   box-shadow: 0 18px 42px rgba(20, 52, 59, 0.085);
 }
 
+.phoneMethod {
+  cursor: default;
+}
+
 .methodIcon {
   width: 2.85rem;
   height: 2.85rem;
@@ -246,6 +250,51 @@
   color: var(--contact-text-muted);
   font-size: 0.9rem;
   line-height: 1.4;
+}
+
+.phoneList {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0.28rem 0 0.18rem;
+}
+
+.phoneRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  width: 100%;
+}
+
+.phoneCallButton {
+  width: 2.05rem;
+  height: 2.05rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid rgba(216, 163, 93, 0.28);
+  border-radius: 999px;
+  background: rgba(216, 163, 93, 0.12);
+  color: var(--contact-sea);
+  text-decoration: none;
+  transition:
+    transform 0.22s ease,
+    background 0.22s ease,
+    border-color 0.22s ease,
+    color 0.22s ease;
+}
+
+.phoneCallButton svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.phoneCallButton:hover {
+  transform: translateY(-1px);
+  border-color: rgba(216, 163, 93, 0.45);
+  background: rgba(216, 163, 93, 0.2);
+  color: var(--contact-text);
 }
 
 .actions {
@@ -313,7 +362,8 @@
 .primaryButton:focus-visible,
 .secondaryButton:focus-visible,
 .mapLink:focus-visible,
-.contactMethod:focus-visible {
+.contactMethod:focus-visible,
+.phoneCallButton:focus-visible {
   outline: 3px solid rgba(44, 154, 183, 0.32);
   outline-offset: 4px;
 }
@@ -490,14 +540,16 @@
   .contactMethod,
   .primaryButton,
   .secondaryButton,
-  .mapLink {
+  .mapLink,
+  .phoneCallButton {
     transition: none;
   }
 
   .contactMethod:hover,
   .primaryButton:hover,
   .secondaryButton:hover,
-  .mapLink:hover {
+  .mapLink:hover,
+  .phoneCallButton:hover {
     transform: none;
   }
 }
