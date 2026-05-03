@@ -7,6 +7,9 @@ const Hero = () => {
         className={styles.heroImage}
         src={`${import.meta.env.BASE_URL}images/hero.avif`}
         alt="Kydonia Apartments near the beach in Platanias, Chania, Crete"
+        fetchPriority="high"
+        loading="eager"
+        decoding="async"
       />
 
       <div className={styles.heroOverlay} aria-hidden="true" />

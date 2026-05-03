@@ -14,43 +14,64 @@
 
     <meta name="robots" content="index, follow" />
 
-    <!-- Replace with your real production domain -->
-    <link rel="canonical" href="https://www.yourdomain.com/" />
+    <!-- Preload main hero image -->
+    <link
+      rel="preload"
+      as="image"
+      href="%BASE_URL%images/hero.avif"
+      type="image/avif"
+      fetchpriority="high"
+    />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://mrr0b0t1001.github.io/kydonia-apts/" />
 
     <!-- Favicons -->
-    <link rel="icon" href="/images/logo-3.jpg" />
-    <link rel="apple-touch-icon" href="/images/logo-3.jpg" />
+    <link rel="icon" href="%BASE_URL%images/logo-3.jpg" />
+    <link rel="apple-touch-icon" href="%BASE_URL%images/logo-3.jpg" />
 
     <!-- Open Graph / Facebook / WhatsApp / LinkedIn -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Kydonia Apartments" />
+
     <meta
       property="og:title"
       content="Kydonia Apartments | Apartments in Chania, Crete"
     />
+
     <meta
       property="og:description"
       content="Comfortable apartments in Chania, Crete with modern amenities and easy access to the city and beaches."
     />
-    <meta property="og:url" content="https://www.yourdomain.com/" />
+
+    <meta
+      property="og:url"
+      content="https://mrr0b0t1001.github.io/kydonia-apts/"
+    />
+
     <meta
       property="og:image"
-      content="https://www.yourdomain.com/images/logo-3.jpg"
+      content="https://mrr0b0t1001.github.io/kydonia-apts/images/logo-2.jpg"
     />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
+
     <meta
       name="twitter:title"
       content="Kydonia Apartments | Apartments in Chania, Crete"
     />
+
     <meta
       name="twitter:description"
       content="Comfortable apartments in Chania, Crete with modern amenities and easy access to the city and beaches."
     />
+
     <meta
       name="twitter:image"
-      content="https://www.yourdomain.com/images/logo-3.jpg"
+      content="https://mrr0b0t1001.github.io/kydonia-apts/images/logo-2.jpg"
     />
 
     <!-- Structured Data -->
@@ -60,8 +81,8 @@
         "@type": "LodgingBusiness",
         "name": "Kydonia Apartments",
         "description": "Comfortable apartments in Chania, Crete.",
-        "url": "https://www.yourdomain.com/",
-        "image": "https://www.yourdomain.com/images/logo-3.jpg",
+        "url": "https://mrr0b0t1001.github.io/kydonia-apts/",
+        "image": "https://mrr0b0t1001.github.io/kydonia-apts/images/logo-2.jpg",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Chania",
@@ -74,7 +95,7 @@
     <style>
       @font-face {
         font-family: "Source Sans 3";
-        src: url("/fonts/source-sans-3-woff.woff2") format("woff2");
+        src: url("%BASE_URL%fonts/source-sans-3-woff.woff2") format("woff2");
         font-weight: 200 900;
         font-style: normal;
         font-display: swap;
@@ -82,7 +103,7 @@
 
       @font-face {
         font-family: "boxicons";
-        src: url("/fonts/boxicons.woff2") format("woff2");
+        src: url("%BASE_URL%fonts/boxicons.woff2") format("woff2");
         font-weight: normal;
         font-style: normal;
         font-display: swap;
