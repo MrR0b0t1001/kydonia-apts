@@ -45,7 +45,7 @@ const serviceStories: ServiceStory[] = [
     label: "Apartment Comfort",
     title: "Comfortable havens for slow mornings",
     text: "Bright, practical spaces designed for restful holidays in Crete. After a day by the sea or exploring Chania, your apartment becomes a calm place to slow down, recharge, and enjoy your stay at your own pace.",
-    image: publicAsset("images/room-1.jpeg"),
+    image: publicAsset("images/room-1.avif"),
     imageAlt: "Bright apartment room at Kydonia Apartments in Platanias",
     highlights: [
       { icon: "wifi", label: "Wi-Fi" },
@@ -58,7 +58,7 @@ const serviceStories: ServiceStory[] = [
     label: "Beachside Living",
     title: "Moments from the beach",
     text: "Start the day with the sea nearby, enjoy relaxed beach hours, and return easily to your apartment whenever you need a quiet break. The location makes simple summer routines feel effortless.",
-    image: publicAsset("images/room-2.jpeg"),
+    image: publicAsset("images/room-2.avif"),
     imageAlt: "Beach near Kydonia Apartments in Platanias, Chania",
     highlights: [
       { icon: "waves", label: "Beach nearby" },
@@ -71,7 +71,7 @@ const serviceStories: ServiceStory[] = [
     label: "Platanias Around You",
     title: "Local life right outside your stay",
     text: "Enjoy the relaxed rhythm of Platanias with cafes, restaurants, shops, and evening walks close to your apartment. Everything feels close enough to enjoy without complicating your holiday.",
-    image: publicAsset("images/room-3.jpeg"),
+    image: publicAsset("images/room-3.avif"),
     imageAlt:
       "Local cafes and restaurants near Kydonia Apartments in Platanias",
     highlights: [
@@ -85,7 +85,7 @@ const serviceStories: ServiceStory[] = [
     label: "Cretan Hospitality",
     title: "Family-run hospitality",
     text: "A stay shaped by warmth, care, and local knowledge. Kydonia Apartments is managed with the kind of personal attention that helps guests feel welcome, comfortable, and looked after.",
-    image: publicAsset("images/room-4.jpeg"),
+    image: publicAsset("images/room-4.avif"),
     imageAlt:
       "Exterior of Kydonia Apartments family-run accommodation in Crete",
     highlights: [
@@ -99,7 +99,7 @@ const serviceStories: ServiceStory[] = [
     label: "Easy Holidays",
     title: "Simple convenience for easy holidays",
     text: "Your stay should feel smooth from the moment you arrive. Useful comforts, outdoor corners, and helpful support make it easier to focus on the reason you came: rest, sunshine, and time by the sea.",
-    image: publicAsset("images/room-5.jpeg"),
+    image: publicAsset("images/room-5.avif"),
     imageAlt: "Balcony and outdoor space at Kydonia Apartments in Platanias",
     highlights: [
       { icon: "clean", label: "Cleaning support" },
