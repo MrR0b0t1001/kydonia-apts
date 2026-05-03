@@ -96,7 +96,7 @@ const Navbar = () => {
         aria-label="Kydonia Apartments home"
       >
         <img
-          src="/images/logo-3.jpg"
+          src={`${import.meta.env.BASE_URL}images/logo-3.jpg`}
           alt=""
           className={styles.logoImage}
           aria-hidden="true"
@@ -153,7 +153,7 @@ const Navbar = () => {
         <div className={styles.mobileTop}>
           <div className={styles.mobileBrand}>
             <img
-              src="/images/logo-3.jpg"
+              src={`${import.meta.env.BASE_URL}images/logo-3.jpg`}
               alt=""
               className={styles.mobileBrandLogo}
               aria-hidden="true"

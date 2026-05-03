@@ -205,7 +205,7 @@ const ContactUs = () => {
         <div className={styles.contactGrid}>
           <div className={styles.imageCard}>
             <img
-              src="/images/contact-us.jpeg"
+              src={`${import.meta.env.BASE_URL}images/contact-us.jpeg`}
               alt="Aerial exterior view of Kydonia Apartments in Platanias, Chania"
               className={styles.contactImage}
             />
